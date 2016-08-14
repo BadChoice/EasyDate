@@ -51,8 +51,8 @@
     NSLog(@"-------------------------------------");
 }
 
--(void)testAddDate{
-    
+-(void)testSetTime{
+    NSLog(@"Set time: %@",[NSDate.now setTime:@"10:34:12"]);
 }
 
 - (void)testPerformanceExample {

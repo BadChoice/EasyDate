@@ -56,7 +56,7 @@
     [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
                 fromDate:NSDate.date];
     
-    [comps setTimeZone:[self makeTimezone:timezone]];
+    [comps setTimeZone:[self.class makeTimezone:timezone]];
     
     if( strEqual(dateType,@"yesterday") ) {
         comps.day--;
@@ -180,6 +180,31 @@
 -(NSDate*)addSeconds:(NSInteger)amount          { return [self dateByAddingSeconds:amount];         }
 -(NSDate*)substractSecond                       { return [self dateBySubtractingSeconds:1];         }
 -(NSDate*)substractSeconds:(NSInteger)amount    { return [self dateBySubtractingSeconds:amount];    }
+
+//============================================
+#pragma mark - Setters
+//============================================
+-(NSDate*)setTime:(NSString*)time{
+    return [self setTime:time timezone:@"UTC"];
+}
+
+-(NSDate*)setTime:(NSString*)time timezone:timezone{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps =
+    [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
+                fromDate:NSDate.date];
+    
+    [comps setTimeZone:[self.class makeTimezone:timezone]];
+    
+    NSArray* times = [time componentsSeparatedByString:@":"];    
+    
+    comps.hour      = [times[0] intValue];
+    comps.minute    = [times[1] intValue];
+    if(times.count == 3)
+        comps.second    = [times[2] intValue];
+
+    return [calendar dateFromComponents:comps];
+}
 
 //============================================
 #pragma mark - Private Formatter

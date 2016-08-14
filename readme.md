@@ -1,116 +1,67 @@
-# NSArray+Collection
+# NSDate+Easy
 
-**Never write another loop again**   
+**Working with dates the right way**   
 
-This library is inspired by `Laravel` collection class to use its expressive syntax.
-Check the .h file to see the documentation as well as all available methods.
+This library is inspired by the good `Carbon` dates library. It helps working with dates in a really easy way.
 
 
 ## Installation
 Copy the category files to your project or just
 
 ```
-    pod 'Collection' 
+    pod 'EasyDate' 
 ```
 
 ## Examples
 
-```
-    NSArray* array = @[@1,@3,@4,@5,@6];
-    NSNumber* first = [array first:^BOOL(NSNumber* object) {
-        return object.intValue > 4;
-    }];
-    NSLog(@"Fist: %@",first);
-```
+The library mainly works with UTC dates but you can pass the timezone in almost all methods
 
+### Creating
 ```
-    NSNumber* second = [array first:^BOOL(NSNumber* object) {
-        return object.intValue > 10;
-    } default:@25];
-    NSLog(@"second: %@",second);
+    NSDate *now         = NSDate.now;
+    NSDate *today       = NSDate.today;
+    NSDate *yesterday   = NSDate.yesterday;
+    NSDate *tomorrow    = NSDate.tomorrow;
 ```
 
+Available methods:
+`now` `today` `tomorrow` `yesterday` `thisWeek` `lastWeek` `nextWeek` `thisMonth` `lastMonth` `nextMonth`
+
+If you need to work with timezones you can pass the timezone or `device` to use the device timezone
+
+So if you are in UTC +2 today:@"device" will be yesterday at 22:00
 
 ```
-    NSArray* oldHeroes = [self.heroes reject:^BOOL(Hero *object) {
-        return object.age.intValue < 20;
-    }];
-    [self printHeroArray:oldHeroes];
+    NSDate *today   = [NSDate today:@"device"];
 ```
 
-
-
-```
-    [self printHeroArray:[self.heroes map:^id(Hero* obj, NSUInteger idx) {
-        obj.age = @(obj.age.intValue * 2);
-        return obj;
-    }]];
-    [self printArray:[self.heroes pluck:@"enemy"]];
-```
+You can also parse dates:
 
 ```
-    NSNumber* totalAge = [self.heroes reduce:^id(NSNumber* carry, Hero* object) {
-        return @(object.age.intValue + carry.intValue);
-    } carry:@(0)];
-
-    or
-
-    NSNumber* totalAge2 = [self.heroes sum:@"age"];
+    NSDate* parsed              = [NSDate parse:@"2016-08-14 04:03:01"];
+    NSDate* parsedTimezoned     = [NSDate parse:@"2016-08-14 04:03:01" timezone:@"Europe/Paris"];
+    NSDate* parsedTimezoned2    = [NSDate parse:@"2016-08-14 04:03:01" timezone:@"device"];
 ```
 
+if you have a `NSString` you can use the `NSString+EasyDate` category to do so:
+
 ```
-    NSNumber* age = [self.heroes sum:@"age"];
-    NSLog(@"Age again: %@",age);
+    NSDate* date = stringDate.toDate;
+    NSDate* date = [stringDate toDate:@"device"];
+```
 
-    NSNumber* older = [self.heroes max:@"age"];
-    NSLog(@"older: %@",older);
+### To string
+It comes with a handful to string methods
 
-    NSNumber* younger = [self.heroes min:@"age"];
-    NSLog(@"younger: %@",younger);
+```
+    date.toDateTimeString;              // 2016-08-14 04:03:01
+    date.toDateString;                  // 2016-08-14
+    date.toDeviceTimezoneString         // 2016-08-14 06:03:01   
+``
 
-    NSNumber* average = [self.heroes avg:@"age"];
-    NSLog(@"average: %@",average);
+## Datetools
+This pod also installs the `DateTools` pod which makes working with dates quite easy as well, however this library has some convenience methods to shorten the calls and make code more readable
+
 ```
 
 ```
-    [self printArray:[@[@1,@2,@3,@4] union:@[@4,@5,@6]]];
-    [self printArray:[@[@1,@2,@3,@4] intersect:@[@4,@5,@6]]];
-    [self printArray:[@[@1,@2,@3,@4] join:@[@4,@5,@6]]];
-    [self printArray:[@[@1,@2,@3,@4] diff:@[@4,@5,@6]]];
-```
-
-```
-    NSArray* grouped = [self.heroes join:self.heroes];
-
-    [grouped groupBy:@"name"];
-
-    [grouped groupBy:@"name" block:^NSString *(Hero* object, NSString *key) {
-    return str(@"-- %@",object.name);
-    }];
-```
-
-```
-    BOOL containsSpiderman = [self.heroes contains:^BOOL(Hero* hero) {
-        return [hero.name isEqualToString:@"Spiderman"];
-    }];
-```
-
-
-```
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] slice:3]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] slice:10]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] slice:6]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] take:2]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] take:10]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] take:-2]];
-    [self printArray:[@[@1,@2,@3,@4,@5,@6] take:-10]];
-```
-
-```
-    NSArray* array2 = @[@1,@2,@3,@4,@5].mutableCopy;
-    NSArray* chunk = [array2 splice:2];
-    [self printArray:chunk];
-    [self printArray:array2];
-```
-
-
