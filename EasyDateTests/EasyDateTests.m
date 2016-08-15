@@ -9,13 +9,19 @@
 #import <XCTest/XCTest.h>
 #import "NSDate+Easy.h"
 
-@interface EasyDateTests : XCTestCase
 
+
+@interface EasyDateTests : XCTestCase
+@property NSDate *controlDate;
+@property NSDate *edgeDate;
 @end
 
 @implementation EasyDateTests
 
 - (void)setUp {
+    
+    self.controlDate = [NSDate parse:@"2016-08-10 18:00:12"];
+    self.edgeDate    = [NSDate parse:@"2016-08-10 00:30:00" timezone:@"device"];
     [super setUp];
 }
 
@@ -23,36 +29,43 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    NSDate* testDate = [NSDate parse:@"2016-01-01 18:00:00"];
-    NSLog(@"TESTDATE: %@",testDate.description);
-    NSLog(@"TESTDATE: %@",testDate.toDateTimeString);
-    NSLog(@"TESTDATE: %@",testDate.toDeviceTimezoneString);
+- (void)testString {
+    XCTAssertTrue( [@"2016-08-10 18:00:12 +0000"    isEqualToString:self.controlDate.description]);
+    XCTAssertTrue( [@"2016-08-10 18:00:12"          isEqualToString:self.controlDate.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 20:00:12"          isEqualToString:self.controlDate.toDeviceTimezoneString]);
+    XCTAssertTrue( [@"2016-08-10"                   isEqualToString:self.controlDate.toDateString]);
+    XCTAssertTrue( [@"10*08*2016"                   isEqualToString:[self.controlDate format:@"dd*MM*yyyy"]]);
     
-    NSDate* testDate2 = NSDate.now;
-    NSLog(@"TESTDATE 2: %@",testDate2.description);
-    NSLog(@"TESTDATE 2: %@",testDate2.toDateTimeString);
-    NSLog(@"TESTDATE 2: %@",testDate2.toDeviceTimezoneString);
+    XCTAssertTrue( [@"2016-08-09 22:30:00 +0000"    isEqualToString:self.edgeDate.description]);
+    XCTAssertTrue( [@"2016-08-09 22:30:00"          isEqualToString:self.edgeDate.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 00:30:00"          isEqualToString:self.edgeDate.toDeviceTimezoneString]);
+    XCTAssertTrue( [@"2016-08-09"                   isEqualToString:self.edgeDate.toDateString]);
+    XCTAssertTrue( [@"09/08/2016"                   isEqualToString:[self.edgeDate format:@"dd/MM/yyyy"]]);
+    XCTAssertTrue( [@"10/08/2016"                   isEqualToString:[self.edgeDate format:@"dd/MM/yyyy" timezone:@"device"]]);
 }
 
 -(void)testDateFor{
-    NSLog(@"Today (Device): %@",NSDate.today.toDeviceTimezoneString);
-    NSLog(@"Today:      %@",NSDate.today);
-    NSLog(@"Yesterday:  %@",NSDate.yesterday);
-    NSLog(@"Tomorrow:   %@",NSDate.tomorrow);
-    NSLog(@"-------------------------------------");
-    NSLog(@"This week:  %@",NSDate.thisWeek);
-    NSLog(@"Last week:  %@",NSDate.lastWeek);
-    NSLog(@"Next week:  %@",NSDate.nextWeek);
-    NSLog(@"-------------------------------------");
-    NSLog(@"This month: %@",NSDate.thisMonth);
-    NSLog(@"Last month: %@",NSDate.lastMonth);
-    NSLog(@"Next month: %@",NSDate.nextMonth);
-    NSLog(@"-------------------------------------");
+    XCTAssertTrue( [@"2016-08-10" isEqualToString:self.controlDate.today.toDateString]);
+    XCTAssertTrue( [@"2016-08-11" isEqualToString:self.controlDate.tomorrow.toDateString]);
+    XCTAssertTrue( [@"2016-08-09" isEqualToString:self.controlDate.yesterday.toDateString]);
+
+    XCTAssertTrue( [@"2016-08-08" isEqualToString:self.controlDate.weekStart.toDateString]);
+    XCTAssertTrue( [@"2016-08-01" isEqualToString:self.controlDate.lastWeek.toDateString]);
+    XCTAssertTrue( [@"2016-08-15" isEqualToString:self.controlDate.nextWeek.toDateString]);
+    
+    XCTAssertTrue( [@"2016-08-01" isEqualToString:self.controlDate.monthStart.toDateString]);
+    XCTAssertTrue( [@"2016-07-01" isEqualToString:self.controlDate.lastMonth.toDateString]);
+    XCTAssertTrue( [@"2016-09-01" isEqualToString:self.controlDate.nextMonth.toDateString]);
 }
 
 -(void)testSetTime{
-    NSLog(@"Set time: %@",[NSDate.now setTime:@"10:34:12"]);
+    XCTAssertTrue( [@"2016-08-10 10:34:12" isEqualToString:[self.controlDate setTime:@"10:34:12" ].toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 08:34:12" isEqualToString:[self.controlDate setTime:@"10:34:12" timezone:@"device"].toDateTimeString]);
+}
+
+-(void)testDifference{
+    XCTAssertTrue( 22   == [self.controlDate            diffInDays:self.controlDate.nextMonth]);
+    XCTAssertTrue( -22  == [self.controlDate.nextMonth  diffInDays:self.controlDate]);
 }
 
 - (void)testPerformanceExample {

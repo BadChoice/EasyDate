@@ -25,7 +25,7 @@ The library mainly works with UTC dates but you can pass the timezone in almost 
 ```
 
 Available methods:
-`now` `today` `tomorrow` `yesterday` `thisWeek` `lastWeek` `nextWeek` `thisMonth` `lastMonth` `nextMonth`
+`now` `today` `tomorrow` `yesterday` `weekStart` `lastWeek` `nextWeek` `monthStart` `lastMonth` `nextMonth`
 
 If you need to work with timezones you can pass the timezone or `device` to use the device timezone
 
@@ -34,6 +34,13 @@ So if you are in UTC +2 today:@"device" will be yesterday at 22:00
 ```
     NSDate *today   = [NSDate today:@"device"];
 ```
+
+You can also give a date to those name constructors
+
+```
+[NSDate parse:@"2016-08-18"].weekStart;
+```
+
 
 You can also parse dates:
 

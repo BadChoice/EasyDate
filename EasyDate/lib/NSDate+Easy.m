@@ -20,12 +20,22 @@
 +(NSDate*)today     { return [self dateFor:@"today"];       }
 +(NSDate*)yesterday { return [self dateFor:@"yesterday"];   }
 +(NSDate*)tomorrow  { return [self dateFor:@"tomorrow"];    }
-+(NSDate*)thisWeek  { return [self dateFor:@"thisWeek"];    }
++(NSDate*)weekStart { return [self dateFor:@"weekStart"];   }
 +(NSDate*)lastWeek  { return [self dateFor:@"lastWeek"];    }
 +(NSDate*)nextWeek  { return [self dateFor:@"nextWeek"];    }
-+(NSDate*)thisMonth { return [self dateFor:@"thisMonth"];   }
++(NSDate*)monthStart{ return [self dateFor:@"monthStart"];  }
 +(NSDate*)lastMonth { return [self dateFor:@"lastMonth"];   }
 +(NSDate*)nextMonth { return [self dateFor:@"nextMonth"];   }
+
+-(NSDate*)today     { return [self.class dateFor:@"today"       date:self];   }
+-(NSDate*)yesterday { return [self.class dateFor:@"yesterday"   date:self];   }
+-(NSDate*)tomorrow  { return [self.class dateFor:@"tomorrow"    date:self];   }
+-(NSDate*)weekStart { return [self.class dateFor:@"weekStart"   date:self];   }
+-(NSDate*)lastWeek  { return [self.class dateFor:@"lastWeek"    date:self];   }
+-(NSDate*)nextWeek  { return [self.class dateFor:@"nextWeek"    date:self];   }
+-(NSDate*)monthStart{ return [self.class dateFor:@"monthStart"  date:self];   }
+-(NSDate*)lastMonth { return [self.class dateFor:@"lastMonth"   date:self];   }
+-(NSDate*)nextMonth { return [self.class dateFor:@"nextMonth"   date:self];   }
 
 //============================================
 #pragma mark - Parse Constructors
@@ -35,7 +45,7 @@
 }
 
 +(NSDate*)parse:(NSString*)datestring timezone:(NSString*)timezone{
-    NSDate * date = [self.class dateFor:datestring timeZone:timezone];
+    NSDate * date = [self.class dateFor:datestring timeZone:timezone date:nil];
     if(date) return date;
     
     NSDateFormatter * formatter = [self.class formatter:nil timezone:timezone];
@@ -43,18 +53,31 @@
 }
 
 +(NSDate*)dateFor:(NSString*)dateType{
-    return [self dateFor:dateType timeZone:@"UTC"];
+    return [self dateFor:dateType timeZone:@"UTC" date:NSDate.date];
 }
 
-+(NSDate*)dateFor:(NSString*)dateType timeZone:(NSString*)timezone{
++(NSDate*)dateFor:(NSString*)dateType date:(NSDate*)date{
+    return [self dateFor:dateType timeZone:@"UTC" date:date];
+}
+
++(NSDate*)dateFor:(NSString*)dateType timeZone:(NSString*)timezone date:(NSDate*)date{
     if( strEqual(dateType,@"now") ) {
         return NSDate.date;
     }
     
+    if(!date) date = NSDate.date;
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps =
-    [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
-                fromDate:NSDate.date];
+    NSCalendarUnit flags;
+    
+    if(strEqual(dateType,@"weekStart") || strEqual(dateType,@"lastWeek") || strEqual(dateType,@"nextWeek")){
+        flags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitWeekday );
+    }
+    else{
+        flags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+    }
+    
+    NSDateComponents *comps = [calendar components:flags fromDate:date];
     
     [comps setTimeZone:[self.class makeTimezone:timezone]];
     
@@ -64,18 +87,18 @@
     else if( strEqual(dateType,@"tomorrow") ) {
         comps.day++;
     }
-    else if( strEqual(dateType,@"thisWeek") ) {
-        comps.weekday = calendar.firstWeekday;
+    else if( strEqual(dateType,@"weekStart") ) {
+        comps.weekday = 2; //Monday
     }
     else if( strEqual(dateType,@"lastWeek") ) {
-        comps.weekday = calendar.firstWeekday;
+        comps.weekday = 2; //Monday
         comps.weekOfYear--;
     }
     else if( strEqual(dateType,@"nextWeek") ) {
-        comps.weekday = calendar.firstWeekday;
+        comps.weekday = 2; //Monday
         comps.weekOfYear++;
     }
-    else if( strEqual(dateType,@"thisMonth") ) {
+    else if( strEqual(dateType,@"monthStart") ) {
         comps.day = 1;
     }
     else if( strEqual(dateType,@"lastMonth") ) {
@@ -115,24 +138,6 @@
     return [[self.class formatter:format timezone:timezone] stringFromDate:self];
 }
 
-/*+(NSString*)dateToDeviceTimezone:(NSString*)gmtDateString{
-    
-    if(gmtDateString == nil || [gmtDateString isEqual:[NSNull null]]) return nil;
-    
-    NSDateFormatter *df = [NSDateFormatter new];
-    [df setDateFormat:EASYDATE_DEFAULT_DATETIME_FORMAT];
-    
-    //Create the date assuming the given string is in GMT
-    df.timeZone     = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    NSDate *date    = [df dateFromString:gmtDateString];
-    
-    //Create a date string in the local timezone
-    df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:[NSTimeZone localTimeZone].secondsFromGMT];
-    
-    NSString *localDateString = [df stringFromDate:date];
-    return localDateString;
-}*/
-
 //============================================
 #pragma mark - Components
 //============================================
@@ -142,6 +147,23 @@
 -(NSInteger)hour    { return self.hour;     }
 -(NSInteger)minute  { return self.minute;   }
 -(NSInteger)second  { return self.second;   }
+
+//============================================
+#pragma mark - Diff
+//============================================
+-(NSInteger)diffInDays:(NSDate*)toDateTime{
+    NSDate *fromDate;
+    NSDate *toDate;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate  interval:NULL forDate:self];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate    interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
+}
+
 
 //============================================
 #pragma mark - Operations
@@ -192,7 +214,7 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps =
     [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
-                fromDate:NSDate.date];
+                fromDate:self];
     
     [comps setTimeZone:[self.class makeTimezone:timezone]];
     

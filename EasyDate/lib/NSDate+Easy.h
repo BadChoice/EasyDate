@@ -17,22 +17,35 @@
 +(NSDate*)today;
 +(NSDate*)yesterday;
 +(NSDate*)tomorrow;
-+(NSDate*)thisWeek;
++(NSDate*)weekStart;
 +(NSDate*)lastWeek;
 +(NSDate*)nextWeek;
-+(NSDate*)thisMonth;
++(NSDate*)monthStart;
 +(NSDate*)lastMonth;
 +(NSDate*)nextMonth;
+
+-(NSDate*)today;
+-(NSDate*)yesterday;
+-(NSDate*)tomorrow;
+-(NSDate*)weekStart;
+-(NSDate*)lastWeek;
+-(NSDate*)nextWeek;
+-(NSDate*)monthStart;
+-(NSDate*)lastMonth;
+-(NSDate*)nextMonth;
 
 +(NSDate*)parse:(NSString*)datestring;
 +(NSDate*)parse:(NSString*)datestring timezone:(NSString*)timezone;
 
++(NSDate*)dateFor:(NSString*)dateType date:(NSDate*)date;
 +(NSDate*)dateFor:(NSString*)dateType;
-+(NSDate*)dateFor:(NSString*)dateType timeZone:(NSString*)timezone;
++(NSDate*)dateFor:(NSString*)dateType timeZone:(NSString*)timezone date:(NSDate*)date;
 
 -(NSString*)toDateTimeString;
 -(NSString*)toDateString;
 -(NSString*)toDeviceTimezoneString;
+-(NSString*)format:(NSString*)format;
+-(NSString*)format:(NSString*)format timezone:(NSString*)timezone;
 
 //============================================
 #pragma mark - Components
@@ -43,6 +56,11 @@
 -(NSInteger)hour;
 -(NSInteger)minute;
 -(NSInteger)second;
+
+//============================================
+#pragma mark - Diffs
+//============================================
+-(NSInteger)diffInDays:(NSDate*)toDateTime;
 
 //============================================
 #pragma mark - Operations
