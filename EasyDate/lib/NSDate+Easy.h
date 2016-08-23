@@ -56,12 +56,12 @@
 //============================================
 #pragma mark - Components
 //============================================
--(NSInteger)year;
+/*-(NSInteger)year;
 -(NSInteger)month;
 -(NSInteger)day;
 -(NSInteger)hour;
 -(NSInteger)minute;
--(NSInteger)second;
+-(NSInteger)second;*/
 
 //============================================
 #pragma mark - Diffs
