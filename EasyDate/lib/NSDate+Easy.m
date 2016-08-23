@@ -207,6 +207,11 @@
     return [self format:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"device"];
 }
 
+-(NSString*)toDeviceTimezoneDateString{
+    return [self format:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"device"];
+}
+
+
 -(NSString*)format:(NSString*)format{
     return [self format:format timezone:@"UTC"];
 }

@@ -50,6 +50,7 @@
 -(NSString*)toDateTimeString;
 -(NSString*)toDateString;
 -(NSString*)toDeviceTimezoneString;
+-(NSString*)toDeviceTimezoneDateString;
 -(NSString*)format:(NSString*)format;
 -(NSString*)format:(NSString*)format timezone:(NSString*)timezone;
 
