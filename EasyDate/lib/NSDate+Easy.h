@@ -17,6 +17,9 @@
 +(NSDate*)today;
 +(NSDate*)yesterday;
 +(NSDate*)tomorrow;
++(NSDate*)thisMinute;
++(NSDate*)lastMinute;
++(NSDate*)nextMinute;
 +(NSDate*)weekStart;
 +(NSDate*)lastWeek;
 +(NSDate*)nextWeek;
@@ -27,6 +30,9 @@
 -(NSDate*)today;
 -(NSDate*)yesterday;
 -(NSDate*)tomorrow;
+-(NSDate*)thisMinute;
+-(NSDate*)lastMinute;
+-(NSDate*)nextMinute;
 -(NSDate*)weekStart;
 -(NSDate*)lastWeek;
 -(NSDate*)nextWeek;

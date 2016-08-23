@@ -20,6 +20,9 @@
 +(NSDate*)today     { return [self dateFor:@"today"];       }
 +(NSDate*)yesterday { return [self dateFor:@"yesterday"];   }
 +(NSDate*)tomorrow  { return [self dateFor:@"tomorrow"];    }
++(NSDate*)thisMinute{ return [self dateFor:@"thisMinute"];  }
++(NSDate*)lastMinute{ return [self dateFor:@"lastWeek"];    }
++(NSDate*)nextMinute{ return [self dateFor:@"nextWeek"];    }
 +(NSDate*)weekStart { return [self dateFor:@"weekStart"];   }
 +(NSDate*)lastWeek  { return [self dateFor:@"lastWeek"];    }
 +(NSDate*)nextWeek  { return [self dateFor:@"nextWeek"];    }
@@ -30,6 +33,9 @@
 -(NSDate*)today     { return [self.class dateFor:@"today"       date:self];   }
 -(NSDate*)yesterday { return [self.class dateFor:@"yesterday"   date:self];   }
 -(NSDate*)tomorrow  { return [self.class dateFor:@"tomorrow"    date:self];   }
+-(NSDate*)thisMinute{ return [self.class dateFor:@"thisMinute"  date:self];   }
+-(NSDate*)lastMinute{ return [self.class dateFor:@"lastWeek"    date:self];   }
+-(NSDate*)nextMinute{ return [self.class dateFor:@"nextWeek"    date:self];   }
 -(NSDate*)weekStart { return [self.class dateFor:@"weekStart"   date:self];   }
 -(NSDate*)lastWeek  { return [self.class dateFor:@"lastWeek"    date:self];   }
 -(NSDate*)nextWeek  { return [self.class dateFor:@"nextWeek"    date:self];   }
@@ -73,6 +79,9 @@
     if(strEqual(dateType,@"weekStart") || strEqual(dateType,@"lastWeek") || strEqual(dateType,@"nextWeek")){
         flags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitWeekday );
     }
+    else if(strEqual(dateType, @"thisMinute") || strEqual(dateType,@"nextMinute") || strEqual(dateType,@"lastMinute")){
+        flags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute);
+    }
     else{
         flags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
     }
@@ -86,6 +95,15 @@
     }
     else if( strEqual(dateType,@"tomorrow") ) {
         comps.day++;
+    }
+    else if( strEqual(dateType,@"thisMinute") ) {
+        //comps.day++;
+    }
+    else if( strEqual(dateType,@"nextMinute") ) {
+        comps.minute++;
+    }
+    else if( strEqual(dateType,@"lastMinute") ) {
+        comps.minute--;
     }
     else if( strEqual(dateType,@"weekStart") ) {
         comps.weekday = 2; //Monday

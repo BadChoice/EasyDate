@@ -56,6 +56,14 @@
     XCTAssertTrue( [@"2016-08-01" isEqualToString:self.controlDate.monthStart.toDateString]);
     XCTAssertTrue( [@"2016-07-01" isEqualToString:self.controlDate.lastMonth.toDateString]);
     XCTAssertTrue( [@"2016-09-01" isEqualToString:self.controlDate.nextMonth.toDateString]);
+    
+    NSDate* thisMin     = self.controlDate.thisMinute;
+    NSDate* nextMin     = self.controlDate.nextMinute;
+    NSDate * lastMint   = self.controlDate.lastMinute;
+    
+    XCTAssertTrue( [@"2016-08-10 20:00:00" isEqualToString:self.controlDate.thisMinute.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 20:01:00" isEqualToString:self.controlDate.nextMinute.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 19:59:00" isEqualToString:self.controlDate.lastMinute.toDateTimeString]);
 }
 
 -(void)testSetTime{
