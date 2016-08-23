@@ -42,6 +42,8 @@
     XCTAssertTrue( [@"2016-08-09"                   isEqualToString:self.edgeDate.toDateString]);
     XCTAssertTrue( [@"09/08/2016"                   isEqualToString:[self.edgeDate format:@"dd/MM/yyyy"]]);
     XCTAssertTrue( [@"10/08/2016"                   isEqualToString:[self.edgeDate format:@"dd/MM/yyyy" timezone:@"device"]]);
+    
+    XCTAssertTrue( [@"2016-08-08"                   isEqualToString:[NSDate parse:@"2016-08-08"].toDateString]);
 }
 
 -(void)testDateFor{    
@@ -74,6 +76,18 @@
     XCTAssertTrue( 22   == [self.controlDate            diffInDays:self.controlDate.nextMonth]);
     XCTAssertTrue( -22  == [self.controlDate.nextMonth  diffInDays:self.controlDate]);
 }
+
+-(void)testSetComponents{
+    
+    XCTAssertTrue( [@"2016-08-10 10:00:12" isEqualToString:[self.controlDate withHour:10].toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 18:10:12" isEqualToString:[self.controlDate withMinute:10].toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 18:00:10" isEqualToString:[self.controlDate withSecond:10].toDateTimeString]);
+    
+    XCTAssertTrue( [@"2015-08-10 18:00:12" isEqualToString:[self.controlDate withYear:2015].toDateTimeString]);
+    XCTAssertTrue( [@"2016-05-10 18:00:12" isEqualToString:[self.controlDate withMonth:5].toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-05 18:00:12" isEqualToString:[self.controlDate withDay:5].toDateTimeString]);
+}
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

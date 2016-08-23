@@ -63,6 +63,14 @@
 -(NSInteger)minute;
 -(NSInteger)second;*/
 
+-(NSDate*)withHour  :(int)hour;
+-(NSDate*)withHour  :(int)hour timezone:(NSString*)timezone;
+-(NSDate*)withMinute:(int)minute;
+-(NSDate*)withSecond:(int)second;
+-(NSDate*)withYear  :(int)year;
+-(NSDate*)withMonth :(int)year;
+-(NSDate*)withDay   :(int)year;
+
 //============================================
 #pragma mark - Diffs
 //============================================

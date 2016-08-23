@@ -54,8 +54,14 @@
     NSDate * date = [self.class dateFor:datestring timeZone:timezone date:nil];
     if(date) return date;
     
-    NSDateFormatter * formatter = [self.class formatter:nil timezone:timezone];
-    return [formatter dateFromString:datestring];
+    if(datestring.length == 19){
+        NSDateFormatter * formatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:timezone];
+        return [formatter dateFromString:datestring];
+    }
+    else{
+        NSDateFormatter * formatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:timezone];
+        return [formatter dateFromString:datestring];
+    }
 }
 
 +(NSDate*)dateFor:(NSString*)dateType{
@@ -138,6 +144,53 @@
     NSDate* d = [calendar dateFromComponents:comps];
     return d;
 }
+
+//============================================
+#pragma mark - Set Components
+//============================================
+-(NSDate*)withHour:(int)hour{
+    return [self withHour:hour timezone:@"UTC"];
+}
+
+-(NSDate*)withHour:(int)hour timezone:(NSString*)timezone{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar setTimeZone:[self.class makeTimezone:timezone]];
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
+    return [calendar dateBySettingHour:hour minute:comps.minute second:comps.second ofDate:self options:0];
+}
+
+-(NSDate*)withMinute:(int)minute{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitHour | NSCalendarUnitSecond) fromDate:self];
+    return [calendar dateBySettingHour:comps.hour minute:minute second:comps.second ofDate:self options:0];
+}
+
+-(NSDate*)withSecond:(int)second{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:self];
+    return [calendar dateBySettingHour:comps.hour minute:comps.minute second:second ofDate:self options:0];
+}
+
+-(NSDate*)withYear  :(int)year{
+    NSCalendar* calendar = NSCalendar.currentCalendar;
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
+    [comps setYear:year];
+    return [NSCalendar.currentCalendar dateFromComponents:comps];
+    
+}
+-(NSDate*)withMonth :(int)month{
+    NSCalendar* calendar = NSCalendar.currentCalendar;
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
+    [comps setMonth:month];
+    return [NSCalendar.currentCalendar dateFromComponents:comps];
+}
+-(NSDate*)withDay   :(int)day{
+    NSCalendar* calendar = NSCalendar.currentCalendar;
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
+    [comps setDay:day];
+    return [NSCalendar.currentCalendar dateFromComponents:comps];
+}
+
 
 //============================================
 #pragma mark - String
