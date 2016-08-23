@@ -162,15 +162,6 @@
     return [[self.class formatter:format timezone:timezone] stringFromDate:self];
 }
 
-//============================================
-#pragma mark - Components
-//============================================
--(NSInteger)year    { return self.year;     }
--(NSInteger)month   { return self.month;    }
--(NSInteger)day     { return self.day;      }
--(NSInteger)hour    { return self.hour;     }
--(NSInteger)minute  { return self.minute;   }
--(NSInteger)second  { return self.second;   }
 
 //============================================
 #pragma mark - Diff

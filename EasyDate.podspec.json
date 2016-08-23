@@ -1,6 +1,6 @@
 {
     "name": "EasyDate",
-    "version": "0.3",
+    "version": "0.4",
     "summary": "Categoryes for making NSDates easy",
     "license": "MIT",
     "platforms": {
@@ -9,7 +9,7 @@
     },
     "source": {
         "git": "https://github.com/BadChoice/EasyDate.git",
-        "tag": "0.3"
+        "tag": "0.4"
     },
     "dependencies":{
         "DateTools": [
