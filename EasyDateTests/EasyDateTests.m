@@ -60,14 +60,6 @@
 }
 
 -(void)testDateForMinutes{
-    NSLog(@"This minute: %@",self.controlDate.thisMinute);
-    NSLog(@"next minute: %@",self.controlDate.nextMinute);
-    NSLog(@"last minute: %@",self.controlDate.lastMinute);
-    
-    NSLog(@"this minute of now: %@", NSDate.thisMinute);
-    NSLog(@"next minute of now: %@", NSDate.nextMinute);
-    NSLog(@"last minute of now: %@", NSDate.lastMinute);
-    
     XCTAssertTrue( [@"2016-08-10 18:00:00" isEqualToString:self.controlDate.thisMinute.toDateTimeString]);
     XCTAssertTrue( [@"2016-08-10 18:01:00" isEqualToString:self.controlDate.nextMinute.toDateTimeString]);
     XCTAssertTrue( [@"2016-08-10 17:59:00" isEqualToString:self.controlDate.lastMinute.toDateTimeString]);
