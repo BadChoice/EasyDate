@@ -44,7 +44,8 @@
     XCTAssertTrue( [@"10/08/2016"                   isEqualToString:[self.edgeDate format:@"dd/MM/yyyy" timezone:@"device"]]);
 }
 
--(void)testDateFor{
+-(void)testDateFor{    
+    
     XCTAssertTrue( [@"2016-08-10" isEqualToString:self.controlDate.today.toDateString]);
     XCTAssertTrue( [@"2016-08-11" isEqualToString:self.controlDate.tomorrow.toDateString]);
     XCTAssertTrue( [@"2016-08-09" isEqualToString:self.controlDate.yesterday.toDateString]);
@@ -56,14 +57,20 @@
     XCTAssertTrue( [@"2016-08-01" isEqualToString:self.controlDate.monthStart.toDateString]);
     XCTAssertTrue( [@"2016-07-01" isEqualToString:self.controlDate.lastMonth.toDateString]);
     XCTAssertTrue( [@"2016-09-01" isEqualToString:self.controlDate.nextMonth.toDateString]);
+}
+
+-(void)testDateForMinutes{
+    NSLog(@"This minute: %@",self.controlDate.thisMinute);
+    NSLog(@"next minute: %@",self.controlDate.nextMinute);
+    NSLog(@"last minute: %@",self.controlDate.lastMinute);
     
-    NSDate* thisMin     = self.controlDate.thisMinute;
-    NSDate* nextMin     = self.controlDate.nextMinute;
-    NSDate * lastMint   = self.controlDate.lastMinute;
+    NSLog(@"this minute of now: %@", NSDate.thisMinute);
+    NSLog(@"next minute of now: %@", NSDate.nextMinute);
+    NSLog(@"last minute of now: %@", NSDate.lastMinute);
     
-    XCTAssertTrue( [@"2016-08-10 20:00:00" isEqualToString:self.controlDate.thisMinute.toDateTimeString]);
-    XCTAssertTrue( [@"2016-08-10 20:01:00" isEqualToString:self.controlDate.nextMinute.toDateTimeString]);
-    XCTAssertTrue( [@"2016-08-10 19:59:00" isEqualToString:self.controlDate.lastMinute.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 18:00:00" isEqualToString:self.controlDate.thisMinute.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 18:01:00" isEqualToString:self.controlDate.nextMinute.toDateTimeString]);
+    XCTAssertTrue( [@"2016-08-10 17:59:00" isEqualToString:self.controlDate.lastMinute.toDateTimeString]);
 }
 
 -(void)testSetTime{
