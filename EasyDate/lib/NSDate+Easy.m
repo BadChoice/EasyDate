@@ -313,7 +313,7 @@
 }
 
 +(NSDateFormatter*)formatter:(NSString*)format timezone:(NSString*)timezone{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];;
+    NSDateFormatter* formatter = [NSDateFormatter new];;
     [formatter setDateFormat:format?format:EASYDATE_DEFAULT_DATETIME_FORMAT];
     
     if(timezone){
