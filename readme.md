@@ -72,3 +72,7 @@ This pod also installs the `DateTools` pod which makes working with dates quite 
 ```
 
 ```
+
+
+## Contributors
+[Kyle Fleming](https://github.com/kylefleming)
