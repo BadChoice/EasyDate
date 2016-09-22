@@ -53,6 +53,7 @@
 -(NSString*)toDeviceTimezoneDateString;
 -(NSString*)format:(NSString*)format;
 -(NSString*)format:(NSString*)format timezone:(NSString*)timezone;
+-(NSString*)formatWithFormatter:(NSDateFormatter*)formatter;
 
 //============================================
 #pragma mark - Components

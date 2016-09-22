@@ -196,19 +196,19 @@
 #pragma mark - String
 //============================================
 -(NSString*)toDateTimeString{
-    return [self format:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
+    return [self formatWithFormatter:self.class.cachedDateTimeFormatter];
 }
 
 -(NSString*)toDateString{
-    return [self format:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"UTC"];
+    return [self formatWithFormatter:self.class.cachedDateFormatter];
 }
 
 -(NSString*)toDeviceTimezoneString{
-    return [self format:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"device"];
+    return [self formatWithFormatter:self.class.cachedDeviceTimezoneFormatter];
 }
 
 -(NSString*)toDeviceTimezoneDateString{
-    return [self format:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"device"];
+    return [self formatWithFormatter:self.class.cachedDeviceTimezoneDateFormatter];
 }
 
 
@@ -218,6 +218,11 @@
 
 -(NSString*)format:(NSString*)format timezone:(NSString*)timezone{
     return [[self.class formatter:format timezone:timezone] stringFromDate:self];
+}
+
+
+-(NSString*)formatWithFormatter:(NSDateFormatter*)formatter{
+    return [formatter stringFromDate:self];
 }
 
 
@@ -328,6 +333,43 @@
     }else{
         return [NSTimeZone timeZoneWithName:timezone];
     }
+}
+
+
++(NSDateFormatter*)cachedDateTimeFormatter{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
+    });
+    return formatter;
+}
+
++(NSDateFormatter*)cachedDateFormatter{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"UTC"];
+    });
+    return formatter;
+}
+
++(NSDateFormatter*)cachedDeviceTimezoneFormatter{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"device"];
+    });
+    return formatter;
+}
+
++(NSDateFormatter*)cachedDeviceTimezoneDateFormatter{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"device"];
+    });
+    return formatter;
 }
 
 @end
