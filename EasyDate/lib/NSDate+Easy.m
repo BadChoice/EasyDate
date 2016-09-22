@@ -35,6 +35,20 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
 +(NSDate*)lastMonth { return [self dateFor:@"lastMonth"];   }
 +(NSDate*)nextMonth { return [self dateFor:@"nextMonth"];   }
 
++(NSDate*)now       :(NSString*)timezone { return [self dateFor:@"now"        timeZone:timezone date:NSDate.date]; }
++(NSDate*)today     :(NSString*)timezone { return [self dateFor:@"today"      timeZone:timezone date:NSDate.date]; }
++(NSDate*)yesterday :(NSString*)timezone { return [self dateFor:@"yesterday"  timeZone:timezone date:NSDate.date]; }
++(NSDate*)tomorrow  :(NSString*)timezone { return [self dateFor:@"tomorrow"   timeZone:timezone date:NSDate.date]; }
++(NSDate*)thisMinute:(NSString*)timezone { return [self dateFor:@"thisMinute" timeZone:timezone date:NSDate.date]; }
++(NSDate*)lastMinute:(NSString*)timezone { return [self dateFor:@"lastMinute" timeZone:timezone date:NSDate.date]; }
++(NSDate*)nextMinute:(NSString*)timezone { return [self dateFor:@"nextMinute" timeZone:timezone date:NSDate.date]; }
++(NSDate*)weekStart :(NSString*)timezone { return [self dateFor:@"weekStart"  timeZone:timezone date:NSDate.date]; }
++(NSDate*)lastWeek  :(NSString*)timezone { return [self dateFor:@"lastWeek"   timeZone:timezone date:NSDate.date]; }
++(NSDate*)nextWeek  :(NSString*)timezone { return [self dateFor:@"nextWeek"   timeZone:timezone date:NSDate.date]; }
++(NSDate*)monthStart:(NSString*)timezone { return [self dateFor:@"monthStart" timeZone:timezone date:NSDate.date]; }
++(NSDate*)lastMonth :(NSString*)timezone { return [self dateFor:@"lastMonth"  timeZone:timezone date:NSDate.date]; }
++(NSDate*)nextMonth :(NSString*)timezone { return [self dateFor:@"nextMonth"  timeZone:timezone date:NSDate.date]; }
+
 -(NSDate*)today     { return [self.class dateFor:@"today"       date:self];   }
 -(NSDate*)yesterday { return [self.class dateFor:@"yesterday"   date:self];   }
 -(NSDate*)tomorrow  { return [self.class dateFor:@"tomorrow"    date:self];   }

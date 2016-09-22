@@ -27,6 +27,20 @@
 +(NSDate*)lastMonth;
 +(NSDate*)nextMonth;
 
++(NSDate*)now       :(NSString*)timezone;
++(NSDate*)today     :(NSString*)timezone;
++(NSDate*)yesterday :(NSString*)timezone;
++(NSDate*)tomorrow  :(NSString*)timezone;
++(NSDate*)thisMinute:(NSString*)timezone;
++(NSDate*)lastMinute:(NSString*)timezone;
++(NSDate*)nextMinute:(NSString*)timezone;
++(NSDate*)weekStart :(NSString*)timezone;
++(NSDate*)lastWeek  :(NSString*)timezone;
++(NSDate*)nextWeek  :(NSString*)timezone;
++(NSDate*)monthStart:(NSString*)timezone;
++(NSDate*)lastMonth :(NSString*)timezone;
++(NSDate*)nextMonth :(NSString*)timezone;
+
 -(NSDate*)today;
 -(NSDate*)yesterday;
 -(NSDate*)tomorrow;
