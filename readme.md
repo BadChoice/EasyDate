@@ -60,11 +60,12 @@ if you have a `NSString` you can use the `NSString+EasyDate` category to do so:
 ### To string
 It comes with a handful to string methods
 
+
 ```
     date.toDateTimeString;              // 2016-08-14 04:03:01
     date.toDateString;                  // 2016-08-14
     date.toDeviceTimezoneString         // 2016-08-14 06:03:01   
-``
+```
 
 ## Datetools
 This pod also installs the `DateTools` pod which makes working with dates quite easy as well, however this library has some convenience methods to shorten the calls and make code more readable
