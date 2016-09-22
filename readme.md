@@ -69,10 +69,6 @@ It comes with a handful to string methods
 ## Datetools
 This pod also installs the `DateTools` pod which makes working with dates quite easy as well, however this library has some convenience methods to shorten the calls and make code more readable
 
-```
-
-```
-
 
 ## Contributors
 [Kyle Fleming](https://github.com/kylefleming)
