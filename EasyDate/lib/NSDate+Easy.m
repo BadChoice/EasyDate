@@ -13,6 +13,11 @@
 
 @implementation NSDate (Easy)
 
+static NSDateFormatter * cachedDateFormatter;
+static NSDateFormatter * cachedDateTimeFormatter;
+static NSDateFormatter * cachedDeviceTimezoneDateFormatter;
+static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
+
 //============================================
 #pragma mark - Named Constructors
 //============================================
@@ -204,7 +209,7 @@
 }
 
 -(NSString*)toDeviceTimezoneString{
-    return [self formatWithFormatter:self.class.cachedDeviceTimezoneFormatter];
+    return [self formatWithFormatter:self.class.cachedDeviceTimezoneDateTimeFormatter];
 }
 
 -(NSString*)toDeviceTimezoneDateString{
@@ -335,41 +340,39 @@
     }
 }
 
-
+//============================================
+#pragma mark - Formatter caches
+//============================================
 +(NSDateFormatter*)cachedDateTimeFormatter{
-    static NSDateFormatter *formatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        formatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
+        cachedDateTimeFormatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
     });
-    return formatter;
+    return cachedDateTimeFormatter;
 }
 
 +(NSDateFormatter*)cachedDateFormatter{
-    static NSDateFormatter *formatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        formatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"UTC"];
+        cachedDateFormatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"UTC"];
     });
-    return formatter;
-}
-
-+(NSDateFormatter*)cachedDeviceTimezoneFormatter{
-    static NSDateFormatter *formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"device"];
-    });
-    return formatter;
+    return cachedDateFormatter;
 }
 
 +(NSDateFormatter*)cachedDeviceTimezoneDateFormatter{
-    static NSDateFormatter *formatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        formatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"device"];
+        cachedDeviceTimezoneDateFormatter = [self.class formatter:EASYDATE_DEFAULT_DATE_FORMAT timezone:@"device"];
     });
-    return formatter;
+    return cachedDeviceTimezoneDateFormatter;
+}
+
++(NSDateFormatter*)cachedDeviceTimezoneDateTimeFormatter{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cachedDeviceTimezoneDateTimeFormatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"device"];
+    });
+    return cachedDeviceTimezoneDateTimeFormatter;
 }
 
 @end
