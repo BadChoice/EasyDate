@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76094B862006236D00C1E673 /* libPods-EasyDate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76094B872006236D00C1E673 /* libPods-EasyDate.a */; };
 		762809041D5FB088001DE507 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 762809031D5FB088001DE507 /* main.m */; };
 		762809071D5FB088001DE507 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 762809061D5FB088001DE507 /* AppDelegate.m */; };
 		7628090A1D5FB088001DE507 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762809091D5FB088001DE507 /* ViewController.m */; };
@@ -18,8 +19,7 @@
 		7670628F1D5FBC7E0051DDBE /* EasyDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7670628E1D5FBC7E0051DDBE /* EasyDateTests.m */; };
 		767062981D60B9E30051DDBE /* NSString+EasyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 767062971D60B9E30051DDBE /* NSString+EasyDate.m */; };
 		7670629B1D60BAB60051DDBE /* EasyDate.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 767062991D60BAB60051DDBE /* EasyDate.podspec.json */; };
-		7670629C1D60BAB60051DDBE /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7670629A1D60BAB60051DDBE /* readme.md */; };
-		F6A30B579BF1AA033B180980 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE339C762E0FF40AC8291C0 /* libPods.a */; };
+		C66790C31A5F7D110A9261B7 /* libPods-EasyDateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD89DEC075CACEFFB10A14E9 /* libPods-EasyDateTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		128141AE48352838E197C364 /* Pods-EasyDate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate.debug.xcconfig"; sourceTree = "<group>"; };
 		1BE339C762E0FF40AC8291C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DAECC602F03F05C41F61C98 /* libPods-EasyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyDate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5059C59D5686DBDBB27B38B1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		55FBEC4EA7EC536D9E2B3695 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		76094B872006236D00C1E673 /* libPods-EasyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-EasyDate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		762808FF1D5FB088001DE507 /* EasyDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809031D5FB088001DE507 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		762809051D5FB088001DE507 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +59,10 @@
 		767062971D60B9E30051DDBE /* NSString+EasyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+EasyDate.m"; path = "lib/NSString+EasyDate.m"; sourceTree = "<group>"; };
 		767062991D60BAB60051DDBE /* EasyDate.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EasyDate.podspec.json; sourceTree = "<group>"; };
 		7670629A1D60BAB60051DDBE /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		A478CEB168DE164F071E6312 /* Pods-EasyDateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDateTests/Pods-EasyDateTests.release.xcconfig"; sourceTree = "<group>"; };
+		DD89DEC075CACEFFB10A14E9 /* libPods-EasyDateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyDateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED343870285DEBB9FBC7555A /* Pods-EasyDate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDate.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate.release.xcconfig"; sourceTree = "<group>"; };
+		F1A3389D3A151703920EA7AD /* Pods-EasyDateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDateTests/Pods-EasyDateTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6A30B579BF1AA033B180980 /* libPods.a in Frameworks */,
+				76094B862006236D00C1E673 /* libPods-EasyDate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66790C31A5F7D110A9261B7 /* libPods-EasyDateTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +88,10 @@
 		54B9F546B0A5A1E669A4E884 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76094B872006236D00C1E673 /* libPods-EasyDate.a */,
 				1BE339C762E0FF40AC8291C0 /* libPods.a */,
+				3DAECC602F03F05C41F61C98 /* libPods-EasyDate.a */,
+				DD89DEC075CACEFFB10A14E9 /* libPods-EasyDateTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,6 +169,10 @@
 			children = (
 				5059C59D5686DBDBB27B38B1 /* Pods.debug.xcconfig */,
 				55FBEC4EA7EC536D9E2B3695 /* Pods.release.xcconfig */,
+				128141AE48352838E197C364 /* Pods-EasyDate.debug.xcconfig */,
+				ED343870285DEBB9FBC7555A /* Pods-EasyDate.release.xcconfig */,
+				F1A3389D3A151703920EA7AD /* Pods-EasyDateTests.debug.xcconfig */,
+				A478CEB168DE164F071E6312 /* Pods-EasyDateTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -169,12 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 762809191D5FB088001DE507 /* Build configuration list for PBXNativeTarget "EasyDate" */;
 			buildPhases = (
-				E0D4EB60D68B9F9239C8B806 /* Check Pods Manifest.lock */,
+				E0D4EB60D68B9F9239C8B806 /* [CP] Check Pods Manifest.lock */,
 				762808FB1D5FB088001DE507 /* Sources */,
 				762808FC1D5FB088001DE507 /* Frameworks */,
 				762808FD1D5FB088001DE507 /* Resources */,
-				522B513D573CC4A41D589E07 /* Embed Pods Frameworks */,
-				94E7D9E155BBAE142FBCFF15 /* Copy Pods Resources */,
+				522B513D573CC4A41D589E07 /* [CP] Embed Pods Frameworks */,
+				94E7D9E155BBAE142FBCFF15 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 767062951D5FBC7E0051DDBE /* Build configuration list for PBXNativeTarget "EasyDateTests" */;
 			buildPhases = (
+				3E4C0A041DA2B0F78679BA83 /* [CP] Check Pods Manifest.lock */,
 				767062881D5FBC7E0051DDBE /* Sources */,
 				767062891D5FBC7E0051DDBE /* Frameworks */,
 				7670628A1D5FBC7E0051DDBE /* Resources */,
+				A9FD507B091750E6CD7AE605 /* [CP] Embed Pods Frameworks */,
+				7AEC687D0D1EF4CAA0FC4550 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,7 +227,7 @@
 		762808F71D5FB088001DE507 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = revo;
 				TargetAttributes = {
 					762808FE1D5FB088001DE507 = {
@@ -262,49 +280,103 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		522B513D573CC4A41D589E07 /* Embed Pods Frameworks */ = {
+		3E4C0A041DA2B0F78679BA83 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDateTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94E7D9E155BBAE142FBCFF15 /* Copy Pods Resources */ = {
+		522B513D573CC4A41D589E07 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0D4EB60D68B9F9239C8B806 /* Check Pods Manifest.lock */ = {
+		7AEC687D0D1EF4CAA0FC4550 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDateTests/Pods-EasyDateTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94E7D9E155BBAE142FBCFF15 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh",
+				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9FD507B091750E6CD7AE605 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDateTests/Pods-EasyDateTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0D4EB60D68B9F9239C8B806 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -318,7 +390,6 @@
 				7628091F1D5FB12B001DE507 /* NSDate+Easy.m in Sources */,
 				762809101D5FB088001DE507 /* EasyDate.xcdatamodeld in Sources */,
 				767062981D60B9E30051DDBE /* NSString+EasyDate.m in Sources */,
-				7670629C1D60BAB60051DDBE /* readme.md in Sources */,
 				762809071D5FB088001DE507 /* AppDelegate.m in Sources */,
 				762809041D5FB088001DE507 /* main.m in Sources */,
 			);
@@ -371,14 +442,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -401,7 +478,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -418,14 +497,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -442,7 +527,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,7 +539,7 @@
 		};
 		7628091A1D5FB088001DE507 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5059C59D5686DBDBB27B38B1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 128141AE48352838E197C364 /* Pods-EasyDate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyDate/Info.plist;
@@ -464,7 +551,7 @@
 		};
 		7628091B1D5FB088001DE507 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55FBEC4EA7EC536D9E2B3695 /* Pods.release.xcconfig */;
+			baseConfigurationReference = ED343870285DEBB9FBC7555A /* Pods-EasyDate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyDate/Info.plist;
@@ -476,6 +563,7 @@
 		};
 		767062931D5FBC7E0051DDBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1A3389D3A151703920EA7AD /* Pods-EasyDateTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EasyDateTests/Info.plist;
@@ -488,6 +576,7 @@
 		};
 		767062941D5FBC7E0051DDBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A478CEB168DE164F071E6312 /* Pods-EasyDateTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EasyDateTests/Info.plist;

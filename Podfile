@@ -1,4 +1,13 @@
 
-platform :ios, '7.0'
+platform :ios, '9.0'
 
-pod 'DateTools' 
+target 'EasyDate' do
+
+    pod 'DateTools'
+
+end
+
+target 'EasyDateTests' do
+
+end
+ 
