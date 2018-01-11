@@ -92,11 +92,12 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
 }
 
 +(NSDate*)dateFor:(NSString*)dateType timeZone:(NSString*)timezone date:(NSDate*)date{
-    if( strEqual(dateType,@"now") ) {
-        return NSDate.date;
+    if (strEqual(dateType,@"now") ) {
+        return ! timezone ? NSDate.date :
+                            [NSDate.date addSeconds:[[self makeTimezone:timezone] secondsFromGMT]];
     }
     
-    if(!date) {
+    if (!date) {
         date = NSDate.date;
     }
     
