@@ -68,6 +68,7 @@
 -(NSString*)format:(NSString*)format;
 -(NSString*)format:(NSString*)format timezone:(NSString*)timezone;
 -(NSString*)formatWithFormatter:(NSDateFormatter*)formatter;
+-(NSString*)iso8601;
 
 //============================================
 #pragma mark - Components

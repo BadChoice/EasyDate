@@ -232,6 +232,7 @@
 				TargetAttributes = {
 					762808FE1D5FB088001DE507 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F2VSE3YKKD;
 					};
 					7670628B1D5FBC7E0051DDBE = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -542,6 +543,7 @@
 			baseConfigurationReference = 128141AE48352838E197C364 /* Pods-EasyDate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F2VSE3YKKD;
 				INFOPLIST_FILE = EasyDate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = works.revo.EasyDate;
@@ -554,6 +556,7 @@
 			baseConfigurationReference = ED343870285DEBB9FBC7555A /* Pods-EasyDate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F2VSE3YKKD;
 				INFOPLIST_FILE = EasyDate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = works.revo.EasyDate;
