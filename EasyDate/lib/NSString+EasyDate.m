@@ -23,4 +23,12 @@
     return [NSDate parse:self].toDeviceTimezoneString;
 }
 
+-(NSString*)dateTimezonedAndLocalized{
+    return [NSDate parse:self].toDateTimezoneLocalized;
+}
+
+-(NSString*)dateTimeTimezonedAndLocalized{
+    return [NSDate parse:self].toDateTimeTimezoneLocalized;
+}
+
 @end

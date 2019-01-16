@@ -13,4 +13,6 @@
 -(NSDate*)toDate;
 -(NSDate*)toDate:(NSString*)timezone;
 -(NSString*)timezoned;
+-(NSString*)dateTimezonedAndLocalized;
+-(NSString*)dateTimeTimezonedAndLocalized;
 @end

@@ -65,6 +65,8 @@
 -(NSString*)toDateString;
 -(NSString*)toDeviceTimezoneString;
 -(NSString*)toDeviceTimezoneDateString;
+-(NSString*)toDateTimezoneLocalized;
+-(NSString*)toDateTimeTimezoneLocalized;
 -(NSString*)format:(NSString*)format;
 -(NSString*)format:(NSString*)format timezone:(NSString*)timezone;
 -(NSString*)formatWithFormatter:(NSDateFormatter*)formatter;

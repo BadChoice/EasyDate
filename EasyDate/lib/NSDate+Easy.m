@@ -227,6 +227,14 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
     return [self formatWithFormatter:self.class.cachedDeviceTimezoneDateTimeFormatter];
 }
 
+-(NSString*)toDateTimezoneLocalized{
+    return [NSDateFormatter localizedStringFromDate:self dateStyle: NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+}
+
+-(NSString*)toDateTimeTimezoneLocalized{
+    return [NSDateFormatter localizedStringFromDate:self dateStyle: NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+}
+
 -(NSString*)toDeviceTimezoneDateString{
     return [self formatWithFormatter:self.class.cachedDeviceTimezoneDateFormatter];
 }
