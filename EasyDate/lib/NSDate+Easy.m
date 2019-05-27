@@ -379,6 +379,7 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cachedDateTimeFormatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
+        [cachedDateTimeFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
     });
     return cachedDateTimeFormatter;
 }
