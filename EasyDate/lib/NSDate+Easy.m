@@ -270,6 +270,15 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
     return [difference day];
 }
 
+-(NSString*)iso8601{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    
+    return [dateFormatter stringFromDate:self];
+}
+
 
 //============================================
 #pragma mark - Operations
@@ -357,7 +366,7 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
 
 +(NSTimeZone*)makeTimezone:(NSString*)timezone{
     if(strEqual(timezone, @"device")){
-        return [NSTimeZone timeZoneForSecondsFromGMT:[NSTimeZone localTimeZone].secondsFromGMT];
+        return [NSTimeZone timeZoneWithName:[NSTimeZone localTimeZone].name];
     }else{
         return [NSTimeZone timeZoneWithName:timezone];
     }
@@ -370,6 +379,7 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cachedDateTimeFormatter = [self.class formatter:EASYDATE_DEFAULT_DATETIME_FORMAT timezone:@"UTC"];
+        [cachedDateTimeFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
     });
     return cachedDateTimeFormatter;
 }
