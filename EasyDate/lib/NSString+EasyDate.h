@@ -15,4 +15,8 @@
 -(NSString*)timezoned;
 -(NSString*)dateTimezonedAndLocalized;
 -(NSString*)dateTimeTimezonedAndLocalized;
+
+- (int)toSeconds;
+
+- (int)toMinutes;
 @end
