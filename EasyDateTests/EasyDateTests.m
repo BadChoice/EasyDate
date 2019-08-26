@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "NSDate+Easy.h"
-
+#import "NSString+EasyDate.h"
 
 
 @interface EasyDateTests : XCTestCase
@@ -86,6 +86,20 @@
     XCTAssertTrue( [@"2015-08-10 18:00:12" isEqualToString:[self.controlDate withYear:2015].toDateTimeString]);
     XCTAssertTrue( [@"2016-05-10 18:00:12" isEqualToString:[self.controlDate withMonth:5].toDateTimeString]);
     XCTAssertTrue( [@"2016-08-05 18:00:12" isEqualToString:[self.controlDate withDay:5].toDateTimeString]);
+}
+
+-(void)testToSeconds{
+    XCTAssertEqual(@"2016-08-10 14:35:42+0000".toSeconds , 52542);
+    XCTAssertEqual(@"2016-08-10 10:28:12".toSeconds , 37692);
+    XCTAssertEqual(@"08:51:27".toSeconds , 31887);
+    XCTAssertEqual(@"03:41".toSeconds , 13260);
+}
+
+-(void)testToMinutes{
+    XCTAssertEqual(@"2016-08-10 14:35:42+0000".toMinutes , 875);
+    XCTAssertEqual(@"2016-08-10 10:28:12".toMinutes , 628);
+    XCTAssertEqual(@"08:51:27".toMinutes , 531);
+    XCTAssertEqual(@"03:41".toMinutes , 221);
 }
 
 - (void)testPerformanceExample {
