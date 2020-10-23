@@ -366,7 +366,8 @@ static NSDateFormatter * cachedDeviceTimezoneDateTimeFormatter;
 
 +(NSTimeZone*)makeTimezone:(NSString*)timezone{
     if(strEqual(timezone, @"device")){
-        return [NSTimeZone timeZoneWithName:[NSTimeZone localTimeZone].name];
+        return [NSTimeZone timeZoneWithName:NSTimeZone.defaultTimeZone.name];
+        //return [NSTimeZone timeZoneWithName:[NSTimeZone localTimeZone].name];
     }else{
         return [NSTimeZone timeZoneWithName:timezone];
     }

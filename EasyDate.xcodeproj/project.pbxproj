@@ -301,7 +301,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh",
 				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -310,7 +310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyDate/Pods-EasyDate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E0D4EB60D68B9F9239C8B806 /* [CP] Check Pods Manifest.lock */ = {
